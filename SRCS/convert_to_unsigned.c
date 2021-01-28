@@ -6,7 +6,7 @@
 /*   By: llecoq <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 17:17:15 by llecoq            #+#    #+#             */
-/*   Updated: 2021/01/26 12:16:41 by llecoq           ###   ########lyon.fr   */
+/*   Updated: 2021/01/27 17:37:56 by llecoq           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +17,22 @@ void	*fill_up_str(char *str, char *temp, t_flags *flags, int len_temp)
 	int len;
 
 	len = ft_strlen(str);
+	if (len == 1 && flags->dec == 0 && (flags->plus == 1 || flags->space == 1))
+		return (str);
 	if (flags->precision == 0 && flags->dec == 0)
-		if (ft_memset(str, ' ', len))
-			return (str);
+	{
+		ft_memset(str, ' ', len);
+		if ((flags->plus == 1 || flags->space == 1) && flags->minus == 1)
+		{
+			if (flags->dec >= 0)
+				str[0] = flags->sign;
+		}
+		return (str);
+	}
 	if (flags->dec >= 0)
 		ft_memcpy(str + flags->start, temp, len_temp);
 	if (flags->dec < 0)
 		ft_memcpy(str + flags->start, temp + 1, len_temp - 1);
-	return (str);
-}
-
-void	*ft_malloc(char *str, int len)
-{
-	if (!(str = (char *)malloc(sizeof(char) * len + 1)))
-		return (NULL);
-	str[len] = '\0';
 	return (str);
 }
 
@@ -47,10 +48,8 @@ void	*fill_up_unsi(char *str, char *temp, t_flags *flags, int len_temp)
 	return (str);
 }
 
-void	*init_str_un(char *str, long len, t_flags *flags)
+int		treat_width_un(long len, t_flags *flags)
 {
-	if (flags->precision == 0 && flags->u == 0 && flags->width == 0)
-		return (NULL);
 	if (len < flags->width || flags->precision >= len)
 	{
 		if (flags->width != 0 || flags->precision != 0)
@@ -72,6 +71,15 @@ void	*init_str_un(char *str, long len, t_flags *flags)
 					len++;
 		}
 	}
+	return (len);
+}
+
+void	*init_str_un(char *str, long len, t_flags *flags)
+{
+	if (flags->plus != 1)
+		if (flags->precision == 0 && flags->u == 0 && flags->width == 0)
+			return (NULL);
+	len = treat_width_un(len, flags);
 	if (flags->plus == 1 && flags->dec > 0)
 		len++;
 	str = ft_malloc(str, len);

@@ -6,48 +6,51 @@
 /*   By: llecoq <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 15:36:10 by llecoq            #+#    #+#             */
-/*   Updated: 2021/01/26 14:20:32 by llecoq           ###   ########lyon.fr   */
+/*   Updated: 2021/01/27 16:15:06 by llecoq           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/ft_printf.h"
 #include <stdio.h>
-/*
+
 int main()
 {
 	int return_value;
+	int num;
 
-
-	return_value = 0;
-     int     a = -4;
-     int     b = 0;
-     char    c = 'a';
-     int     d = 2147483647;
-     int     e = -2147483648;
-     int     f = 42;
-     int     g = 25;
-     int     h = 4200;
-     int     i = 8;
-     int     j = -12;
-     int     k = 123456789;
-     int     l = 0;
-     int     m = -12345678;
-     char    *n = "abcdefghijklmnop";
-     char    *o = "-a";
-     char    *p = "-12";
-    char    *q = "0";
-     char    *r = "%%";
-     char    *s = "-2147483648";
-     char    *t = "0x12345678";
-     char    *u = "-0";
-
-	return_value = printf("%*.p", 0, NULL );
+//	return_value = printf("tripouille %nooooh\n", &num);
+//	printf("\n1 printf    num = %d\n", num);
+//	return_value = ft_printf("tripouille %nooooh\n", &num);
+//	printf("\n1 ft_printf    num = %d\n", num);
+//	return_value = ft_printf("%s%n", "tripouille");
+//	printf("\n1 ft_printf return_value = %d\n", return_value);
+	printf("-------------------------------------------------\n");
+	return_value = printf("%10p %10p ", 1, -1);
 	printf("\n1 printf    return_value = %d\n", return_value);
-	return_value = ft_printf("%*.p", 0, NULL );
+	return_value = ft_printf("%10p %10p ", 1, -1);
+	printf("\n1 ft_printf return_value = %d\n", return_value);
+	printf("-------------------------------------------------\n");/*
+	return_value = printf("%#15.*x", 5, 1);
+	printf("\n1 printf    return_value = %d\n", return_value);
+	return_value = ft_printf("%#15.*x", 5, 1);
 	printf("\n1 ft_printf return_value = %d\n", return_value);
 	printf("-------------------------------------------------\n");
-}*/
-
+	return_value = printf("%#-03.1x", 1);
+	printf("\n1 printf    return_value = %d\n", return_value);
+	return_value = ft_printf("%#-03.1x", 1);
+	printf("\n1 ft_printf return_value = %d\n", return_value);
+	printf("-------------------------------------------------\n");
+	return_value = printf("%#2x", 1);
+	printf("\n1 printf    return_value = %d\n", return_value);
+	return_value = ft_printf("%#2x", 1);
+	printf("\n1 ft_printf return_value = %d\n", return_value);
+	printf("-------------------------------------------------\n");
+	return_value = printf("%#-03.*X", 2, 1);
+	printf("\n1 printf    return_value = %d\n", return_value);
+	return_value = ft_printf("%#-03.*X", 2, 1);
+	printf("\n1 ft_printf return_value = %d\n", return_value);*/
+}
+/*
 int		ft_printf(const char *, ...);
 #include "includes/ft_printf.h"
 #include <limits.h>
@@ -2108,7 +2111,7 @@ int	main()
 	while (1) {}
 	return(0);
 }
-/*
+
 int	main(int ac, char **av)
 {
   int	ret[2];

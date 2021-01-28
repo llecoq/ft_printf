@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   convert_to_hexa.c                                  :+:      :+:    :+:   */
+/*   convert_to_hexa_up.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llecoq <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/25 08:13:35 by llecoq            #+#    #+#             */
-/*   Updated: 2021/01/27 17:39:18 by llecoq           ###   ########lyon.fr   */
+/*   Created: 2021/01/27 14:23:47 by llecoq            #+#    #+#             */
+/*   Updated: 2021/01/27 17:40:04 by llecoq           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-void	set_flags(t_flags *flags)
-{
-	flags->dec = 1;
-	if (flags->zero == 1)
-		flags->sign = '0';
-	if (flags->width < 0)
-		flags->width *= -1;
-}
-
-void	print_sharp_left(char *temp, int len_temp, t_flags *flags)
+void	print_sharp_left_up(char *temp, int len_temp, t_flags *flags)
 {
 	int		i;
 
 	i = 0;
-	ft_putstr("0x", flags);
+	ft_putstr("0X", flags);
 	while (flags->precision > len_temp)
 	{
 		ft_putchar('0', flags);
@@ -42,10 +33,10 @@ void	print_sharp_left(char *temp, int len_temp, t_flags *flags)
 		}
 }
 
-void	treat_sharp(char *temp, int len, t_flags *flags)
+void	treat_sharp_up(char *temp, int len, t_flags *flags)
 {
 	if (flags->minus == 1)
-		print_sharp_left(temp, len, flags);
+		print_sharp_left_up(temp, len, flags);
 	if (flags->minus == 0)
 	{
 		while (flags->width - 2 > len && flags->width - 2 > flags->precision)
@@ -53,7 +44,7 @@ void	treat_sharp(char *temp, int len, t_flags *flags)
 			ft_putchar(' ', flags);
 			flags->width--;
 		}
-		ft_putstr("0x", flags);
+		ft_putstr("0X", flags);
 		while (flags->precision - len > 0)
 		{
 			ft_putchar('0', flags);
@@ -64,18 +55,18 @@ void	treat_sharp(char *temp, int len, t_flags *flags)
 	free(temp);
 }
 
-void	convert_to_hexa(t_flags *flags, unsigned int n)
+void	convert_to_hexa_up(t_flags *flags, unsigned int n)
 {
 	char					*temp;
 	char					*str;
 	unsigned int			len_temp;
 
 	str = NULL;
-	temp = ft_itoa_base(n, "0123456789abcdef");
+	temp = ft_itoa_base(n, "0123456789ABCDEF");
 	len_temp = ft_strlen(temp);
 	if (flags->sharp == 1 && n != 0)
 	{
-		treat_sharp(temp, len_temp, flags);
+		treat_sharp_up(temp, len_temp, flags);
 		return ;
 	}
 	set_flags(flags);

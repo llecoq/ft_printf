@@ -6,11 +6,20 @@
 /*   By: llecoq <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 12:52:09 by llecoq            #+#    #+#             */
-/*   Updated: 2021/01/26 13:54:10 by llecoq           ###   ########lyon.fr   */
+/*   Updated: 2021/01/27 16:18:37 by llecoq           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+
+void	treat_null_pointer(t_flags *flags, char *hexa, unsigned long long p)
+{
+	if (flags->precision == 0 && p == 0)
+	{
+		free(hexa);
+		hexa = ft_strdup("");
+	}
+}
 
 void	convert_to_pointer(t_flags *flags, unsigned long long pointer)
 {
@@ -22,11 +31,7 @@ void	convert_to_pointer(t_flags *flags, unsigned long long pointer)
 	str = NULL;
 	hexa = ft_itoa_base_long(pointer, "0123456789abcdef");
 	str = ft_strdup("0x");
-	if (flags->precision == 0 && pointer == 0)
-	{
-		free(hexa);
-		hexa = ft_strdup("");
-	}
+	treat_null_pointer(flags, hexa, pointer);
 	temp = ft_strjoin(str, hexa);
 	free(str);
 	free(hexa);
