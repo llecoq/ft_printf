@@ -6,7 +6,7 @@
 /*   By: llecoq <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 14:57:21 by llecoq            #+#    #+#             */
-/*   Updated: 2021/01/27 16:39:21 by llecoq           ###   ########lyon.fr   */
+/*   Updated: 2021/01/28 12:56:30 by llecoq           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void		process_star(t_flags *flags, va_list args)
 int			find_flags(char c, t_flags *flags, va_list args)
 {
 	if (c == 'c' || c == 's' || c == 'p' || c == 'd' || c == 'i' || c == 'u'
-			|| c == 'x' || c == 'X' || c == '%' || c == 'n')
+			|| c == 'x' || c == 'X' || c == '%' || c == 'n' || c == 'f')
 		return (0);
 	else if (c == '-')
 		flags->minus = 1;
@@ -91,4 +91,6 @@ void		find_type(const char *input, va_list args, t_flags *flags)
 		convert_to_percent(flags);
 	if (input[flags->index] == 'n')
 		convert_to_n(flags, va_arg(args, int *));
+	if (input[flags->index] == 'f')
+		convert_to_float(flags, (long double)va_arg(args, double));
 }

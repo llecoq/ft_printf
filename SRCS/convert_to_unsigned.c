@@ -6,13 +6,13 @@
 /*   By: llecoq <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 17:17:15 by llecoq            #+#    #+#             */
-/*   Updated: 2021/01/27 17:37:56 by llecoq           ###   ########lyon.fr   */
+/*   Updated: 2021/01/29 15:41:45 by llecoq           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-void	*fill_up_str(char *str, char *temp, t_flags *flags, int len_temp)
+char	*fill_up_str(char *str, char *temp, t_flags *flags, int len_temp)
 {
 	int len;
 
@@ -36,7 +36,7 @@ void	*fill_up_str(char *str, char *temp, t_flags *flags, int len_temp)
 	return (str);
 }
 
-void	*fill_up_unsi(char *str, char *temp, t_flags *flags, int len_temp)
+char	*fill_up_unsi(char *str, char *temp, t_flags *flags, int len_temp)
 {
 	int len;
 
@@ -102,7 +102,8 @@ void	convert_to_unsigned_int(va_list args, t_flags *flags)
 		process_positive(str, flags, len_temp);
 		str = fill_up_unsi(str, temp, flags, len_temp);
 		ft_putstr(str, flags);
-		free(str);
 	}
 	free(temp);
+	if (str)
+		free(str);
 }

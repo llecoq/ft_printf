@@ -6,13 +6,13 @@
 /*   By: llecoq <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 17:17:39 by llecoq            #+#    #+#             */
-/*   Updated: 2021/01/27 16:20:28 by llecoq           ###   ########lyon.fr   */
+/*   Updated: 2021/01/29 15:40:46 by llecoq           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-void	*process_negative(char *str, t_flags *flags, int len_temp)
+void	process_negative(char *str, t_flags *flags, int len_temp)
 {
 	int len;
 
@@ -37,10 +37,9 @@ void	*process_negative(char *str, t_flags *flags, int len_temp)
 		if (flags->precision > 0 && flags->precision >= len_temp)
 			flags->start = flags->precision - len_temp + 1;
 	flags->start++;
-	return (str);
 }
 
-void	*process_positive(char *str, t_flags *flags, int len_temp)
+void	process_positive(char *str, t_flags *flags, int len_temp)
 {
 	int len;
 
@@ -56,7 +55,6 @@ void	*process_positive(char *str, t_flags *flags, int len_temp)
 		if (flags->space == 1 && flags->dec >= 0 && flags->precision > len_temp)
 			flags->start++;
 	}
-	return (str);
 }
 
 void	convert_to_dec(va_list args, t_flags *flags)
@@ -82,8 +80,9 @@ void	convert_to_dec(va_list args, t_flags *flags)
 			process_negative(str, flags, len_temp);
 		str = fill_up_str(str, temp, flags, len_temp);
 		ft_putstr(str, flags);
-		free(str);
 	}
 	if (temp)
 		free(temp);
+	if (str)
+		free(str);
 }

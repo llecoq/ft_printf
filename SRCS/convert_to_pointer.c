@@ -6,7 +6,7 @@
 /*   By: llecoq <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 12:52:09 by llecoq            #+#    #+#             */
-/*   Updated: 2021/01/27 16:18:37 by llecoq           ###   ########lyon.fr   */
+/*   Updated: 2021/01/29 15:35:13 by llecoq           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,11 @@ void	convert_to_pointer(t_flags *flags, unsigned long long pointer)
 	char					*temp;
 	unsigned long long		len_temp;
 
-	str = NULL;
+	str = "0x";
+	temp = NULL;
 	hexa = ft_itoa_base_long(pointer, "0123456789abcdef");
-	str = ft_strdup("0x");
 	treat_null_pointer(flags, hexa, pointer);
 	temp = ft_strjoin(str, hexa);
-	free(str);
 	free(hexa);
 	len_temp = ft_strlen(temp);
 	flags->dec = 1;
@@ -45,7 +44,8 @@ void	convert_to_pointer(t_flags *flags, unsigned long long pointer)
 		process_positive(str, flags, len_temp);
 		str = fill_up_str(str, temp, flags, len_temp);
 		ft_putstr(str, flags);
-		free(str);
 	}
 	free(temp);
+	if (str)
+		free(str);
 }

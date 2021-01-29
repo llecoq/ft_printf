@@ -6,12 +6,13 @@
 /*   By: llecoq <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 15:36:10 by llecoq            #+#    #+#             */
-/*   Updated: 2021/01/27 16:15:06 by llecoq           ###   ########lyon.fr   */
+/*   Updated: 2021/01/29 15:25:58 by llecoq           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/ft_printf.h"
 #include <stdio.h>
+#include <limits.h>
 
 int main()
 {
@@ -24,36 +25,35 @@ int main()
 //	printf("\n1 ft_printf    num = %d\n", num);
 //	return_value = ft_printf("%s%n", "tripouille");
 //	printf("\n1 ft_printf return_value = %d\n", return_value);
-	printf("-------------------------------------------------\n");
-	return_value = printf("%10p %10p ", 1, -1);
+/*	printf("-------------------------------------------------\n");*/
+	return_value = printf(" %p ", -1);
 	printf("\n1 printf    return_value = %d\n", return_value);
-	return_value = ft_printf("%10p %10p ", 1, -1);
+	return_value = ft_printf(" %p ", -1);
 	printf("\n1 ft_printf return_value = %d\n", return_value);
 	printf("-------------------------------------------------\n");/*
-	return_value = printf("%#15.*x", 5, 1);
+	return_value = printf("%.0f", 4.5);
 	printf("\n1 printf    return_value = %d\n", return_value);
-	return_value = ft_printf("%#15.*x", 5, 1);
+	return_value = ft_printf("%.0f", 4.5);
 	printf("\n1 ft_printf return_value = %d\n", return_value);
 	printf("-------------------------------------------------\n");
-	return_value = printf("%#-03.1x", 1);
+	return_value = printf("%.0f", -2.5);
 	printf("\n1 printf    return_value = %d\n", return_value);
-	return_value = ft_printf("%#-03.1x", 1);
+	return_value = ft_printf("%.0f", -2.5);
 	printf("\n1 ft_printf return_value = %d\n", return_value);
 	printf("-------------------------------------------------\n");
-	return_value = printf("%#2x", 1);
+	return_value = printf("%f %f ", LONG_MIN * 1.0, LONG_MAX * 1.0);
 	printf("\n1 printf    return_value = %d\n", return_value);
-	return_value = ft_printf("%#2x", 1);
+	return_value = ft_printf("%f %f ", LONG_MIN * 1.0, LONG_MAX * 1.0);
 	printf("\n1 ft_printf return_value = %d\n", return_value);
 	printf("-------------------------------------------------\n");
-	return_value = printf("%#-03.*X", 2, 1);
+	return_value = printf("%10f ", 1.0 / 0);
 	printf("\n1 printf    return_value = %d\n", return_value);
-	return_value = ft_printf("%#-03.*X", 2, 1);
+	return_value = ft_printf("%10f ", 1.0 / 0);
 	printf("\n1 ft_printf return_value = %d\n", return_value);*/
 }
 /*
 int		ft_printf(const char *, ...);
 #include "includes/ft_printf.h"
-#include <limits.h>
 #include <stdio.h>
 
 typedef	struct		s_main

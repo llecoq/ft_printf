@@ -6,7 +6,7 @@
 /*   By: llecoq <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 17:32:02 by llecoq            #+#    #+#             */
-/*   Updated: 2021/01/28 09:12:51 by llecoq           ###   ########lyon.fr   */
+/*   Updated: 2021/01/29 15:40:42 by llecoq           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,10 @@ void		*ft_malloc(char *str, int len);
 void		*init_str(char *str, int len, t_flags *flags);
 void		*init_str_un(char *str, long len, t_flags *flags);
 void		*set_mem(char *str, t_flags *flags, int len_temp, int len);
-void		*process_positive(char *str, t_flags *flags, int len_temp);
-void		*process_negative(char *str, t_flags *flags, int len_temp);
-void		*fill_up_str(char *str, char *temp, t_flags *flags, int len_temp);
-void		*fill_up_unsi(char *str, char *temp, t_flags *flags, int len_temp);
+void		process_positive(char *str, t_flags *flags, int len_temp);
+void		process_negative(char *str, t_flags *flags, int len_temp);
+char		*fill_up_str(char *str, char *temp, t_flags *flags, int len_temp);
+char		*fill_up_unsi(char *str, char *temp, t_flags *flags, int len_temp);
 void		convert_to_hexa(t_flags *flags, unsigned int n);
 void		convert_to_hexa_up(t_flags *flags, unsigned int n);
 char		*ft_itoa_base(unsigned int value, char *base);
@@ -68,5 +68,6 @@ void		*set_mem(char *str, t_flags *flags, int len_temp, int len);
 void		set_mem_plus_space(char *str, t_flags *flags, int len_temp, int len);
 int			treat_width_un(long len, t_flags *flags);
 int			find_flags(char c, t_flags *flags, va_list args);
+void		convert_to_float(t_flags *flags, long double f);
 
 #endif

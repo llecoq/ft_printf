@@ -6,13 +6,13 @@
 #    By: llecoq <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/26 16:20:12 by llecoq            #+#    #+#              #
-#    Updated: 2021/01/27 16:08:19 by llecoq           ###   ########lyon.fr    #
+#    Updated: 2021/01/28 13:21:58 by llecoq           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			= libftprintf.a
 
-SRCS		= ft_printf.c srcs/convert_to_dec.c srcs/ft_putchar.c srcs/ft_putstr.c srcs/convert_to_unsigned.c srcs/convert_to_char.c srcs/init_flags.c srcs/convert_to_string.c srcs/convert_to_hexa.c srcs/ft_itoa_base.c srcs/convert_to_pointer.c srcs/ft_itoa_base_long.c srcs/find_type.c srcs/convert_to_percent.c srcs/convert_to_hexa_up.c srcs/init_mem_str.c 
+SRCS		= ft_printf.c srcs/convert_to_dec.c srcs/ft_putchar.c srcs/ft_putstr.c srcs/convert_to_unsigned.c srcs/convert_to_char.c srcs/init_flags.c srcs/convert_to_string.c srcs/convert_to_hexa.c srcs/ft_itoa_base.c srcs/convert_to_pointer.c srcs/ft_itoa_base_long.c srcs/find_type.c srcs/convert_to_percent.c srcs/convert_to_hexa_up.c srcs/init_mem_str.c srcs/convert_to_float.c 
 
 OBJS			= ${SRCS:.c=.o}
 
