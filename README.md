@@ -24,6 +24,33 @@
 - [What's included](#whats-included)
 - [Creators](#creators)
 
+## Quick start
+
+printf with some bonus.
+
+My first "big" project as I was learning basics of programmation and C.
+
+- Clone repo :
+    ```
+    git clone https://github.com/llecoq/ft_printf.git
+    ```
+- Get inside the root of the directory :
+    ```
+    cd ft_printf
+    ```
+- Compile mandatory part
+    ```
+    make
+    ```
+- Compile mandatory + bonus part
+    ```
+    make bonus
+    ```
+- Force clean
+    ```
+    make fclean
+    ```
+
 ## What's included
 
 ```
@@ -108,33 +135,6 @@ ft_printf
 └── main.c
 ```
 
-
-## Quick start
-
-printf with some bonus.
-
-My first "big" project as I was learning basics of programmation and C.
-
-- Clone repo :
-    ```
-    git clone https://github.com/llecoq/ft_printf.git
-    ```
-- Get inside the root of the directory :
-    ```
-    cd ft_printf
-    ```
-- Compile mandatory part
-    ```
-    make
-    ```
-- Compile mandatory + bonus part
-    ```
-    make bonus
-    ```
-- Force clean
-    ```
-    make fclean
-    ```
 ## Creators
 
 **llecoq**
