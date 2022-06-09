@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://42lyon.fr/">
-    <img src="https://github.com/llecoq/ft_printf/blob/master/assets/final%20grade.png" alt="ft_printf" width=200 height=171>
+    <img src="https://github.com/llecoq/ft_printf/blob/master/assets/final%20grade.png" alt="ft_printf" width=200 height=170>
   </a>
 
   <h2 align="center">Libft</h2>
